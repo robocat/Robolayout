@@ -1,6 +1,14 @@
 # Robolayout
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 The default auto layout API is cumbersome to work with. At Robocat we made a few extensions to NSLayoutConstraint and UIView in order to make a tolerable auto layout API.
+
+## Installation
+
+Either manually build the framework and import it into your project or install it using Carthage.
+
+Add `github "robocat/Robolayout"` to your Cartfile and run `carthage update`. Drag the framework into your project.
 
 ## Quick overview
 
