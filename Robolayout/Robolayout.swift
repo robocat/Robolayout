@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension NSLayoutConstraint {
+public extension NSLayoutConstraint {
     
     convenience init(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : AnyObject? = nil, _ attribute2 : NSLayoutAttribute = .NotAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = 1000) {
         self.init(item: item, attribute: attribute, relatedBy: relation, toItem: item2, attribute: attribute2, multiplier: multiplier, constant: constant)
@@ -16,7 +16,7 @@ extension NSLayoutConstraint {
     
 }
 
-extension UIView {
+public extension UIView {
     
     public var horizontalCompressionResistance: Float {
         set { setContentCompressionResistancePriority(newValue, forAxis: .Horizontal) }

@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		72391B571B8470F900F733AC /* Robolayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 72391B561B8470F900F733AC /* Robolayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		72391B5F1B84711500F733AC /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72391B5E1B84711500F733AC /* AutoLayout.swift */; };
+		72391B5F1B84711500F733AC /* Robolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72391B5E1B84711500F733AC /* Robolayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		72391B531B8470F900F733AC /* Robolayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Robolayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72391B561B8470F900F733AC /* Robolayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Robolayout.h; sourceTree = "<group>"; };
 		72391B581B8470F900F733AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		72391B5E1B84711500F733AC /* AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
+		72391B5E1B84711500F733AC /* Robolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Robolayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +48,8 @@
 		72391B551B8470F900F733AC /* Robolayout */ = {
 			isa = PBXGroup;
 			children = (
-				72391B5E1B84711500F733AC /* AutoLayout.swift */,
 				72391B561B8470F900F733AC /* Robolayout.h */,
+				72391B5E1B84711500F733AC /* Robolayout.swift */,
 				72391B581B8470F900F733AC /* Info.plist */,
 			);
 			path = Robolayout;
@@ -134,7 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72391B5F1B84711500F733AC /* AutoLayout.swift in Sources */,
+				72391B5F1B84711500F733AC /* Robolayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
