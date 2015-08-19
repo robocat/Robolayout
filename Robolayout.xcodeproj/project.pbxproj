@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		72391B571B8470F900F733AC /* Robolayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 72391B561B8470F900F733AC /* Robolayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72391B5F1B84711500F733AC /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72391B5E1B84711500F733AC /* AutoLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		72391B531B8470F900F733AC /* Robolayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Robolayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72391B561B8470F900F733AC /* Robolayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Robolayout.h; sourceTree = "<group>"; };
 		72391B581B8470F900F733AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72391B5E1B84711500F733AC /* AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		72391B551B8470F900F733AC /* Robolayout */ = {
 			isa = PBXGroup;
 			children = (
+				72391B5E1B84711500F733AC /* AutoLayout.swift */,
 				72391B561B8470F900F733AC /* Robolayout.h */,
 				72391B581B8470F900F733AC /* Info.plist */,
 			);
@@ -90,6 +93,7 @@
 		72391B4A1B8470F900F733AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Robocat;
 				TargetAttributes = {
@@ -130,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72391B5F1B84711500F733AC /* AutoLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,28 +233,33 @@
 		72391B5C1B8470F900F733AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Robolayout/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cat.robo.Robolayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		72391B5D1B8470F900F733AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Robolayout/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cat.robo.Robolayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,6 +286,7 @@
 				72391B5D1B8470F900F733AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
