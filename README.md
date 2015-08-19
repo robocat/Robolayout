@@ -45,7 +45,7 @@ A lot of the time you will use the above methods. The below method lays out to v
 
 Sometimes you are interested in positioning views relative to the objects conforming to UILayoutSupport, e.g. `topLayoutGuide` and `bottomLayoutGuide` of UIViewController. In those cases you use the below method.
 
-    constraintToLayoutSupport(item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : UILayoutSupport, _ attribute2 : NSLayoutAttribute = .NotAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = 1000)
+    constraintToLayoutSupport(item: UIView, _ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, _ item2: UILayoutSupport, _ attribute2: NSLayoutAttribute = .NotAnAttribute, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
 
 ## Keeping references
 
