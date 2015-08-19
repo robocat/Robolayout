@@ -16,44 +16,56 @@ Below is a quick overview of the API. Most of the methods should be self-explana
 
 **Directly setting width and height**
 
-    setWidthEqual(constant: CGFloat)
-    setHeightEqual(constant: CGFloat)
-    setWidthEqual(view: UIView, multiplier: CGFloat = 1)
-    setHeightEqual(view: UIView, multiplier: CGFloat = 1)
+```swift
+setWidthEqual(constant: CGFloat)
+setHeightEqual(constant: CGFloat)
+setWidthEqual(view: UIView, multiplier: CGFloat = 1)
+setHeightEqual(view: UIView, multiplier: CGFloat = 1)
+```
     
 **Spacing to edges**
 
-    setLeadingToSuperview(relation relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
-    setTrailingToSuperview(relation relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
-    setTopToSuperview(relation relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
-    setBottomToSuperview(relation relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
-    constraints(vertical vertical: String? = nil, horizontal: String? = nil, _ views: [String : UIView])
+```swift
+setLeadingToSuperview(relation relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+setTrailingToSuperview(relation relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+setTopToSuperview(relation relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+setBottomToSuperview(relation relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+constraints(vertical vertical: String? = nil, horizontal: String? = nil, _ views: [String : UIView])
+```
 
 The last method lets you configure the constraints using a visual format.
 
 **Centering**
 
-    setCenterVerticallyInSuperview(constant constant: CGFloat = 0, priority: UILayoutPriority = 1000)
-    setCenterHorizontallyInSuperview(constant constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+```swift
+setCenterVerticallyInSuperview(constant constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+setCenterHorizontallyInSuperview(constant constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+```
 
 **Content hugging and compression resistance**
 
 The following variables on instances of UIView lets you configure the content hugging and compression resistance.
 
-    horizontalCompressionResistance
-    verticalCompressionResistance
-    horizontalHuggingPriority
-    verticalHuggingPriority
+```swift
+horizontalCompressionResistance
+verticalCompressionResistance 
+horizontalHuggingPriority
+verticalHuggingPriority
+```
 
 ## Going into detail
 
 A lot of the time you will use the above methods. The below method lays out to views relative to each other.
 
-    constraint(item: UIView, _ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, _ item2: UIView? = nil, _ attribute2: NSLayoutAttribute = .NotAnAttribute, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+```swift
+constraint(item: UIView, _ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, _ item2: UIView? = nil, _ attribute2: NSLayoutAttribute = .NotAnAttribute, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+```
 
 Sometimes you are interested in positioning views relative to the objects conforming to UILayoutSupport, e.g. `topLayoutGuide` and `bottomLayoutGuide` of UIViewController. In those cases you use the below method.
 
-    constraintToLayoutSupport(item: UIView, _ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, _ item2: UILayoutSupport, _ attribute2: NSLayoutAttribute = .NotAnAttribute, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+```swift
+constraintToLayoutSupport(item: UIView, _ attribute: NSLayoutAttribute, _ relation: NSLayoutRelation, _ item2: UILayoutSupport, _ attribute2: NSLayoutAttribute = .NotAnAttribute, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = 1000)
+```
 
 ## Keeping references
 
