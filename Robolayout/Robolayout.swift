@@ -2,7 +2,7 @@
 //  AutoLayout.swift
 //  Roboshop
 //
-//  Created by Simon Støvring on 08/06/15.
+//  Created by Robocat on 08/06/15.
 //  Copyright (c) 2015 Robocat. All rights reserved.
 //
 
