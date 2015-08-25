@@ -85,6 +85,20 @@ public extension UIView {
         return setAttributeToSuperview(attribute: .CenterX, relation: .Equal, constant: constant, priority: priority)
     }
     
+    public func setCenterInSuperview(offset: CGPoint = CGPointZero, priority: UILayoutPriority = 1000) -> [NSLayoutConstraint] {
+        return [
+            setCenterHorizontallyInSuperview(constant: offset.x, priority: priority),
+            setCenterVerticallyInSuperview(constant: offset.y, priority: priority)
+        ]
+    }
+    
+    public func setEdgesEqualToSuperview(insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
+        return superview!.constraints(
+            vertical: "|-\(insets.top)-[view]-\(insets.bottom)-|",
+            horizontal: "|-\(insets.left)-[view]-\(insets.right)-|",
+            [ "view": self ])
+    }
+    
     private func setAttributeToSuperview(attribute attribute: NSLayoutAttribute, relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
         return superview!.constraint(self, attribute, relation, superview!, attribute, multiplier: 1, constant: constant, priority: priority)
     }
