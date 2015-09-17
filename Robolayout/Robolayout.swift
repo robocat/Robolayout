@@ -2,7 +2,7 @@
 //  AutoLayout.swift
 //  Roboshop
 //
-//  Created by Robocat on 08/06/15.
+//  Created by Simon Støvring on 08/06/15.
 //  Copyright (c) 2015 Robocat. All rights reserved.
 //
 
@@ -38,14 +38,14 @@ public extension UIView {
         get { return contentHuggingPriorityForAxis(.Vertical) }
     }
     
-    public func constraints(vertical vertical: String? = nil, horizontal: String? = nil, _ views: [String : UIView]) -> [NSLayoutConstraint] {
+    public func constraints(vertical vertical: String? = nil, horizontal: String? = nil, options: NSLayoutFormatOptions = [], _ views: [String : UIView]) -> [NSLayoutConstraint] {
         var constraints: [NSLayoutConstraint] = []
         if let v = vertical {
-            constraints += addConstraintsWithFormat("V:\(v)", views: views)
+            constraints += addConstraintsWithFormat("V:\(v)", options: options, views: views)
         }
         
         if let h = horizontal {
-            constraints += addConstraintsWithFormat("H:\(h)", views: views)
+            constraints += addConstraintsWithFormat("H:\(h)", options: options, views: views)
         }
         
         for (_, view) in views {
@@ -55,8 +55,8 @@ public extension UIView {
         return constraints
     }
     
-    private func addConstraintsWithFormat(format: String, views: [String: UIView]) -> [NSLayoutConstraint] {
-        let constraints = NSLayoutConstraint.constraintsWithVisualFormat(format, options: .AlignAllBaseline, metrics: nil, views: views)
+    private func addConstraintsWithFormat(format: String, options: NSLayoutFormatOptions = [], views: [String: UIView]) -> [NSLayoutConstraint] {
+        let constraints = NSLayoutConstraint.constraintsWithVisualFormat(format, options: options, metrics: nil, views: views)
         addConstraints(constraints)
         return constraints as NSArray as! [NSLayoutConstraint]
     }
