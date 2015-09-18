@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7236B4DF1BAC0C6D0020529B"
-               BuildableName = "Robolayout tvOS.framework"
+               BuildableName = "Robolayout.framework"
                BlueprintName = "Robolayout tvOS"
                ReferencedContainer = "container:Robolayout.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7236B4DF1BAC0C6D0020529B"
-            BuildableName = "Robolayout tvOS.framework"
+            BuildableName = "Robolayout.framework"
             BlueprintName = "Robolayout tvOS"
             ReferencedContainer = "container:Robolayout.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7236B4DF1BAC0C6D0020529B"
-            BuildableName = "Robolayout tvOS.framework"
+            BuildableName = "Robolayout.framework"
             BlueprintName = "Robolayout tvOS"
             ReferencedContainer = "container:Robolayout.xcodeproj">
          </BuildableReference>
