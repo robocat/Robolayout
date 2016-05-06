@@ -99,6 +99,17 @@ public extension UIView {
             [ "view": self ])
     }
     
+    public func setEdgestEqualToSiblingView(siblingView: UIView, insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
+        var constraints = [NSLayoutConstraint]()
+        
+        constraints.append(constraint(self, .Top, .Equal, siblingView, .Top, constant: insets.top))
+        constraints.append(constraint(self, .Bottom, .Equal, siblingView, .Bottom, constant: insets.bottom))
+        constraints.append(constraint(self, .Leading, .Equal, siblingView, .Leading, constant: insets.left))
+        constraints.append(constraint(self, .Trailing, .Equal, siblingView, .Trailing, constant: insets.right))
+        
+        return constraints
+    }
+    
     private func setAttributeToSuperview(attribute attribute: NSLayoutAttribute, relation: NSLayoutRelation = .Equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
         return superview!.constraint(self, attribute, relation, superview!, attribute, multiplier: 1, constant: constant, priority: priority)
     }
