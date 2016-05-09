@@ -99,7 +99,7 @@ public extension UIView {
             [ "view": self ])
     }
     
-    public func setEdgestEqualToSiblingView(siblingView: UIView, insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
+    public func setEdgesEqualToSiblingView(siblingView: UIView, insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         
         constraints.append(constraint(self, .Top, .Equal, siblingView, .Top, constant: insets.top))
