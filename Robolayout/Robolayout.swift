@@ -94,8 +94,8 @@ public extension UIView {
     
     public func setEdgesEqualToSuperview(insets: UIEdgeInsets = UIEdgeInsetsZero) -> [NSLayoutConstraint] {
         return superview!.constraints(
-            vertical: "|-\(insets.top)-[view]-\(insets.bottom)-|",
-            horizontal: "|-\(insets.left)-[view]-\(insets.right)-|",
+            vertical: "|-(\(insets.top))-[view]-(\(insets.bottom))-|",
+            horizontal: "|-(\(insets.left))-[view]-(\(insets.right))-|",
             [ "view": self ])
     }
     
