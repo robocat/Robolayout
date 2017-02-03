@@ -137,7 +137,7 @@
 				ORGANIZATIONNAME = Robocat;
 				TargetAttributes = {
 					7236B4DF1BAC0C6D0020529B = {
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 					};
 					72391B521B8470F900F733AC = {
 						CreatedOnToolsVersion = 7.0;
@@ -220,7 +220,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -245,7 +245,7 @@
 				PRODUCT_NAME = Robolayout;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};

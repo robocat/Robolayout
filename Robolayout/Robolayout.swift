@@ -41,11 +41,11 @@ public extension UIView {
     public func constraints(vertical: String? = nil, horizontal: String? = nil, options: NSLayoutFormatOptions = [], _ views: [String : UIView]) -> [NSLayoutConstraint] {
         var constraints: [NSLayoutConstraint] = []
         if let v = vertical {
-            constraints += addConstraintsWithFormat("V:\(v)", options: options, views: views)
+            constraints += addConstraints(with: "V:\(v)", options: options, views: views)
         }
         
         if let h = horizontal {
-            constraints += addConstraintsWithFormat("H:\(h)", options: options, views: views)
+            constraints += addConstraints(with: "H:\(h)", options: options, views: views)
         }
         
         for (_, view) in views {
@@ -55,44 +55,44 @@ public extension UIView {
         return constraints
     }
     
-    fileprivate func addConstraintsWithFormat(_ format: String, options: NSLayoutFormatOptions = [], views: [String: UIView]) -> [NSLayoutConstraint] {
+    fileprivate func addConstraints(with format: String, options: NSLayoutFormatOptions = [], views: [String: UIView]) -> [NSLayoutConstraint] {
         let constraints = NSLayoutConstraint.constraints(withVisualFormat: format, options: options, metrics: nil, views: views)
         addConstraints(constraints)
         return constraints as NSArray as! [NSLayoutConstraint]
     }
     
-    public func setLeadingToSuperview(relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
-        return setAttributeToSuperview(attribute: .leading, relation: relation, constant: constant, priority: priority)
+    public func setLeadingToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+        return setAttributeToSuperview(.leading, relation: relation, constant: constant, priority: priority)
     }
     
-    public func setTrailingToSuperview(relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
-        return setAttributeToSuperview(attribute: .trailing, relation: relation, constant: constant, priority: priority)
+    public func setTrailingToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+        return setAttributeToSuperview(.trailing, relation: relation, constant: constant, priority: priority)
     }
     
-    public func setTopToSuperview(relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
-        return setAttributeToSuperview(attribute: .top, relation: relation, constant: constant, priority: priority)
+    public func setTopToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+        return setAttributeToSuperview(.top, relation: relation, constant: constant, priority: priority)
     }
     
-    public func setBottomToSuperview(relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
-        return setAttributeToSuperview(attribute: .bottom, relation: relation, constant: constant, priority: priority)
+    public func setBottomToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+        return setAttributeToSuperview(.bottom, relation: relation, constant: constant, priority: priority)
     }
     
-    public func setCenterVerticallyInSuperview(constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint {
-        return setAttributeToSuperview(attribute: .centerY, relation: .equal, constant: constant, priority: priority)
+    public func setCenterVerticallyInSuperview(_ constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint {
+        return setAttributeToSuperview(.centerY, relation: .equal, constant: constant, priority: priority)
     }
     
-    public func setCenterHorizontallyInSuperview(constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint {
-        return setAttributeToSuperview(attribute: .centerX, relation: .equal, constant: constant, priority: priority)
+    public func setCenterHorizontallyInSuperview(_ constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint {
+        return setAttributeToSuperview(.centerX, relation: .equal, constant: constant, priority: priority)
     }
     
     public func setCenterInSuperview(_ offset: CGPoint = CGPoint.zero, priority: UILayoutPriority = 1000) -> [NSLayoutConstraint] {
         return [
-            setCenterHorizontallyInSuperview(constant: offset.x, priority: priority),
-            setCenterVerticallyInSuperview(constant: offset.y, priority: priority)
+            setCenterHorizontallyInSuperview(offset.x, priority: priority),
+            setCenterVerticallyInSuperview(offset.y, priority: priority)
         ]
     }
     
-    public func setEdgesEqualToSuperview(_ insets: UIEdgeInsets = UIEdgeInsets.zero) -> [NSLayoutConstraint] {
+    public func setEdgesEqualToSuperview(insets: UIEdgeInsets = UIEdgeInsets.zero) -> [NSLayoutConstraint] {
         return superview!.constraints(
             vertical: "|-(\(insets.top))-[view]-(\(insets.bottom))-|",
             horizontal: "|-(\(insets.left))-[view]-(\(insets.right))-|",
@@ -110,7 +110,7 @@ public extension UIView {
         return constraints
     }
     
-    fileprivate func setAttributeToSuperview(attribute: NSLayoutAttribute, relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+    fileprivate func setAttributeToSuperview(_ attribute: NSLayoutAttribute, relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
         return superview!.constraint(self, attribute, relation, superview!, attribute, multiplier: 1, constant: constant, priority: priority)
     }
     
