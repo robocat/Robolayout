@@ -38,6 +38,7 @@ public extension UIView {
         get { return contentHuggingPriority(for: .vertical) }
     }
     
+    @discardableResult
     public func constraints(vertical: String? = nil, horizontal: String? = nil, options: NSLayoutFormatOptions = [], _ views: [String : UIView]) -> [NSLayoutConstraint] {
         var constraints: [NSLayoutConstraint] = []
         if let v = vertical {
@@ -61,30 +62,37 @@ public extension UIView {
         return constraints as NSArray as! [NSLayoutConstraint]
     }
     
+    @discardableResult
     public func setLeadingToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
         return setAttributeToSuperview(.leading, relation: relation, constant: constant, priority: priority)
     }
     
+    @discardableResult
     public func setTrailingToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
         return setAttributeToSuperview(.trailing, relation: relation, constant: constant, priority: priority)
     }
     
+    @discardableResult
     public func setTopToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
         return setAttributeToSuperview(.top, relation: relation, constant: constant, priority: priority)
     }
     
+    @discardableResult
     public func setBottomToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
         return setAttributeToSuperview(.bottom, relation: relation, constant: constant, priority: priority)
     }
     
+    @discardableResult
     public func setCenterVerticallyInSuperview(_ constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint {
         return setAttributeToSuperview(.centerY, relation: .equal, constant: constant, priority: priority)
     }
     
+    @discardableResult
     public func setCenterHorizontallyInSuperview(_ constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint {
         return setAttributeToSuperview(.centerX, relation: .equal, constant: constant, priority: priority)
     }
     
+    @discardableResult
     public func setCenterInSuperview(_ offset: CGPoint = CGPoint.zero, priority: UILayoutPriority = 1000) -> [NSLayoutConstraint] {
         return [
             setCenterHorizontallyInSuperview(offset.x, priority: priority),
@@ -92,6 +100,7 @@ public extension UIView {
         ]
     }
     
+    @discardableResult
     public func setEdgesEqualToSuperview(insets: UIEdgeInsets = UIEdgeInsets.zero) -> [NSLayoutConstraint] {
         return superview!.constraints(
             vertical: "|-(\(insets.top))-[view]-(\(insets.bottom))-|",
@@ -99,6 +108,7 @@ public extension UIView {
             [ "view": self ])
     }
     
+    @discardableResult
     public func setEdgesEqualToSiblingView(_ siblingView: UIView, insets: UIEdgeInsets = UIEdgeInsets.zero) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         
@@ -114,33 +124,40 @@ public extension UIView {
         return superview!.constraint(self, attribute, relation, superview!, attribute, multiplier: 1, constant: constant, priority: priority)
     }
     
+    @discardableResult
     public func setWidthEqual(_ constant: CGFloat) -> NSLayoutConstraint {
         return superview!.constraint(self, .width, .equal, constant: constant)
     }
     
+    @discardableResult
     public func setHeightEqual(_ constant: CGFloat) -> NSLayoutConstraint {
         return superview!.constraint(self, .height, .equal, constant: constant)
     }
     
+    @discardableResult
     public func setWidthEqual(_ view: UIView, multiplier: CGFloat = 1) -> NSLayoutConstraint {
         return superview!.constraint(self, .width, .equal, view, .width, multiplier: multiplier)
     }
     
+    @discardableResult
     public func setHeightEqual(_ view: UIView, multiplier: CGFloat = 1) -> NSLayoutConstraint {
         return superview!.constraint(self, .height, .equal, view, .height, multiplier: multiplier)
     }
     
+    @discardableResult
     public func constraint(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : UIView? = nil, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = 1000) -> NSLayoutConstraint {
         item.translatesAutoresizingMaskIntoConstraints = false
         item2?.translatesAutoresizingMaskIntoConstraints = false
         return constraintUsing(item, attribute, relation, item2, attribute2, multiplier: multiplier, constant: constant, priority: priority)
     }
     
+    @discardableResult
     public func constraintToLayoutSupport(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : UILayoutSupport, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = 1000) -> NSLayoutConstraint {
         item.translatesAutoresizingMaskIntoConstraints = false
         return constraintUsing(item, attribute, relation, item2, attribute2, multiplier: multiplier, constant: constant, priority: priority)
     }
     
+    @discardableResult
     fileprivate func constraintUsing(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : AnyObject? = nil, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = 1000) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(item, attribute, relation, item2, attribute2, multiplier: multiplier, constant: constant)
         constraint.priority = priority
