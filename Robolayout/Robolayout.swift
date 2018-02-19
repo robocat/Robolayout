@@ -10,7 +10,7 @@ import UIKit
 
 public extension NSLayoutConstraint {
     
-    convenience init(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : AnyObject? = nil, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = 1000) {
+    convenience init(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : AnyObject? = nil, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = UILayoutPriority(1000)) {
         self.init(item: item, attribute: attribute, relatedBy: relation, toItem: item2, attribute: attribute2, multiplier: multiplier, constant: constant)
     }
     
@@ -19,23 +19,23 @@ public extension NSLayoutConstraint {
 public extension UIView {
     
     public var horizontalCompressionResistance: Float {
-        set { setContentCompressionResistancePriority(newValue, for: .horizontal) }
-        get { return contentCompressionResistancePriority(for: .horizontal) }
+        set { setContentCompressionResistancePriority(UILayoutPriority(rawValue: newValue), for: .horizontal) }
+        get { return contentCompressionResistancePriority(for: .horizontal).rawValue }
     }
         
     public var verticalCompressionResistance: Float {
-        set { setContentCompressionResistancePriority(newValue, for: .vertical) }
-        get { return contentCompressionResistancePriority(for: .vertical) }
+        set { setContentCompressionResistancePriority(UILayoutPriority(rawValue: newValue), for: .vertical) }
+        get { return contentCompressionResistancePriority(for: .vertical).rawValue }
     }
     
     public var horizontalHuggingPriority: Float {
-        set { setContentHuggingPriority(newValue, for: .horizontal) }
-        get { return contentHuggingPriority(for: .horizontal) }
+        set { setContentHuggingPriority(UILayoutPriority(rawValue: newValue), for: .horizontal) }
+        get { return contentHuggingPriority(for: .horizontal).rawValue }
     }
     
     public var verticalHuggingPriority: Float {
-        set { setContentHuggingPriority(newValue, for: .vertical) }
-        get { return contentHuggingPriority(for: .vertical) }
+        set { setContentHuggingPriority(UILayoutPriority(rawValue: newValue), for: .vertical) }
+        get { return contentHuggingPriority(for: .vertical).rawValue }
     }
     
     @discardableResult
@@ -63,37 +63,37 @@ public extension UIView {
     }
     
     @discardableResult
-    public func setLeadingToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+    public func setLeadingToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint  {
         return setAttributeToSuperview(.leading, relation: relation, constant: constant, priority: priority)
     }
     
     @discardableResult
-    public func setTrailingToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+    public func setTrailingToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint  {
         return setAttributeToSuperview(.trailing, relation: relation, constant: constant, priority: priority)
     }
     
     @discardableResult
-    public func setTopToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+    public func setTopToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint  {
         return setAttributeToSuperview(.top, relation: relation, constant: constant, priority: priority)
     }
     
     @discardableResult
-    public func setBottomToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+    public func setBottomToSuperview(_ relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint  {
         return setAttributeToSuperview(.bottom, relation: relation, constant: constant, priority: priority)
     }
     
     @discardableResult
-    public func setCenterVerticallyInSuperview(_ constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint {
+    public func setCenterVerticallyInSuperview(_ constant: CGFloat = 0, priority: UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint {
         return setAttributeToSuperview(.centerY, relation: .equal, constant: constant, priority: priority)
     }
     
     @discardableResult
-    public func setCenterHorizontallyInSuperview(_ constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint {
+    public func setCenterHorizontallyInSuperview(_ constant: CGFloat = 0, priority: UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint {
         return setAttributeToSuperview(.centerX, relation: .equal, constant: constant, priority: priority)
     }
     
     @discardableResult
-    public func setCenterInSuperview(_ offset: CGPoint = CGPoint.zero, priority: UILayoutPriority = 1000) -> [NSLayoutConstraint] {
+    public func setCenterInSuperview(_ offset: CGPoint = CGPoint.zero, priority: UILayoutPriority = UILayoutPriority(1000)) -> [NSLayoutConstraint] {
         return [
             setCenterHorizontallyInSuperview(offset.x, priority: priority),
             setCenterVerticallyInSuperview(offset.y, priority: priority)
@@ -120,7 +120,7 @@ public extension UIView {
         return constraints
     }
     
-    fileprivate func setAttributeToSuperview(_ attribute: NSLayoutAttribute, relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = 1000) -> NSLayoutConstraint  {
+    fileprivate func setAttributeToSuperview(_ attribute: NSLayoutAttribute, relation: NSLayoutRelation = .equal, constant: CGFloat = 0, priority: UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint  {
         return superview!.constraint(self, attribute, relation, superview!, attribute, multiplier: 1, constant: constant, priority: priority)
     }
     
@@ -145,20 +145,20 @@ public extension UIView {
     }
     
     @discardableResult
-    public func constraint(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : UIView? = nil, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = 1000) -> NSLayoutConstraint {
+    public func constraint(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : UIView? = nil, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint {
         item.translatesAutoresizingMaskIntoConstraints = false
         item2?.translatesAutoresizingMaskIntoConstraints = false
         return constraintUsing(item, attribute, relation, item2, attribute2, multiplier: multiplier, constant: constant, priority: priority)
     }
     
     @discardableResult
-    public func constraintToLayoutSupport(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : UILayoutSupport, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = 1000) -> NSLayoutConstraint {
+    public func constraintToLayoutSupport(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : UILayoutSupport, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint {
         item.translatesAutoresizingMaskIntoConstraints = false
         return constraintUsing(item, attribute, relation, item2, attribute2, multiplier: multiplier, constant: constant, priority: priority)
     }
     
     @discardableResult
-    fileprivate func constraintUsing(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : AnyObject? = nil, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = 1000) -> NSLayoutConstraint {
+    fileprivate func constraintUsing(_ item : UIView, _ attribute : NSLayoutAttribute, _ relation : NSLayoutRelation, _ item2 : AnyObject? = nil, _ attribute2 : NSLayoutAttribute = .notAnAttribute, multiplier : CGFloat = 1, constant : CGFloat = 0, priority : UILayoutPriority = UILayoutPriority(1000)) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(item, attribute, relation, item2, attribute2, multiplier: multiplier, constant: constant)
         constraint.priority = priority
         addConstraint(constraint)
